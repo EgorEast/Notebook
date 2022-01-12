@@ -14,20 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let viewController = ViewController()
+        let mainViewController = MainViewController()
+        let activityViewController = ActivityViewController()
         let navController = UINavigationController()
-        navController.setViewControllers([viewController], animated: true)
+        navController.setViewControllers([mainViewController, activityViewController], animated: true)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
         return true
     }
-
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
-    {
-        return .portrait
-    }
-
 }
 
