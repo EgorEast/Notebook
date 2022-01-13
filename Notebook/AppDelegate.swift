@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let mainViewController = MainViewController()
-        let activityViewController = ActivityViewController()
+        let eventsViewController = EventsViewController()
         let navController = UINavigationController()
-        navController.setViewControllers([mainViewController, activityViewController], animated: true)
+        navController.setViewControllers([mainViewController, eventsViewController], animated: true)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController

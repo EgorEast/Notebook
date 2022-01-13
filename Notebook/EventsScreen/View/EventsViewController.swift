@@ -1,5 +1,5 @@
 //
-//  ActivityViewController.swift
+//  EventsViewController.swift
 //  Notebook
 //
 //  Created by Egor Slobodskoy on 12.01.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ActivityViewController: UIViewController {
+final class EventsViewController: UIViewController {
     
-    private var activityViewModel = ActivityViewModelImpl()
+    private var eventsViewModel = ActivityViewModelImpl()
     
     let tableView = UITableView(frame: .zero, style: .plain)
 
@@ -29,12 +29,12 @@ final class ActivityViewController: UIViewController {
     }
     
     private func setupTableView() {
-        self.tableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "ActivityTableViewCell")
+        self.tableView.register(EventsTableViewCell.self, forCellReuseIdentifier: "EventsTableViewCell")
 //        tableView.separatorStyle = .none
         tableView.clipsToBounds = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = ActivityConstants.cellHeight
+        tableView.rowHeight = EventsConstants.cellHeight
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -51,24 +51,24 @@ final class ActivityViewController: UIViewController {
     
 }
 
-extension ActivityViewController: UITableViewDataSource {
+extension EventsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
             case self.tableView:
-                return self.activityViewModel.data.count
+                return self.eventsViewModel.data.count
             default:
                 return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
-        cell.nameLabel.text = activityViewModel.data[indexPath.row]
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell", for: indexPath) as! EventsTableViewCell
+        cell.nameLabel.text = eventsViewModel.data[indexPath.row]
         return cell
     }
 }
 
-extension ActivityViewController: UITableViewDelegate {
+extension EventsViewController: UITableViewDelegate {
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

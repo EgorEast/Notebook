@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ActivityViewModel {
+protocol EventsViewModel {
     var data: [String] { get set }
 }
 

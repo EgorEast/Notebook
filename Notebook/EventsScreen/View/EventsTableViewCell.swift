@@ -1,5 +1,5 @@
 //
-//  ActivityTableViewCell.swift
+//  EventsTableViewCell.swift
 //  Notebook
 //
 //  Created by Egor Slobodskoy on 12.01.2022.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-enum ActivityConstants {
+enum EventsConstants {
     static let cellHeight = UIScreen.main.bounds.height * 0.1
     static var avatarSize: Double = {
-        return ActivityConstants.cellHeight * 0.7
+        return EventsConstants.cellHeight * 0.7
     }()
 }
 
-final class ActivityTableViewCell: UITableViewCell {
+final class EventsTableViewCell: UITableViewCell {
     
     
     private let containerView = UIView()
@@ -28,7 +28,7 @@ final class ActivityTableViewCell: UITableViewCell {
     
     var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Description text lorem ipsum hello world"
+        label.text = "Description text"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
         return label
@@ -36,7 +36,7 @@ final class ActivityTableViewCell: UITableViewCell {
     
     var daysLeftNumberLabel: UILabel = {
         let label = UILabel()
-        label.text = "23"
+        label.text = "0"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
         return label
@@ -54,7 +54,7 @@ final class ActivityTableViewCell: UITableViewCell {
         let imageView = UIImageView(
             image: UIImage(named: "EmptyAvatar")
         )
-        imageView.frame.size = CGSize(width: ActivityConstants.avatarSize, height: ActivityConstants.avatarSize)
+        imageView.frame.size = CGSize(width: EventsConstants.avatarSize, height: EventsConstants.avatarSize)
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
         return imageView
@@ -125,8 +125,8 @@ final class ActivityTableViewCell: UITableViewCell {
             
             avatarImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             avatarImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3),
-            avatarImageView.heightAnchor.constraint(equalToConstant: ActivityConstants.avatarSize),
-            avatarImageView.widthAnchor.constraint(equalToConstant: ActivityConstants.avatarSize),
+            avatarImageView.heightAnchor.constraint(equalToConstant: EventsConstants.avatarSize),
+            avatarImageView.widthAnchor.constraint(equalToConstant: EventsConstants.avatarSize),
             
             
             nameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 4),
