@@ -22,6 +22,31 @@ final class ActivityTableViewCell: UITableViewCell {
     var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Label"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Description text lorem ipsum hello world"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
+    var daysLeftNumberLabel: UILabel = {
+        let label = UILabel()
+        label.text = "23"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
+    var daysTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "days"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
         return label
     }()
     
@@ -66,12 +91,30 @@ final class ActivityTableViewCell: UITableViewCell {
     
     private func setupLabels() {
         containerView.addSubview(nameLabel)
+        containerView.addSubview(descriptionLabel)
+        containerView.addSubview(daysLeftNumberLabel)
+        containerView.addSubview(daysTitleLabel)
     }
     
     private func setupLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        daysLeftNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        daysTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let lessWidthConstraintNameLabel = NSLayoutConstraint(
+            item: nameLabel,
+            attribute: .width,
+            relatedBy: .lessThanOrEqual,
+            toItem: containerView,
+            attribute: .width,
+            multiplier: 0.65,
+            constant: 0
+        );
         
         NSLayoutConstraint.activate([
             containerView.leftAnchor.constraint(equalTo: containerView.superview?.leftAnchor ?? contentView.leftAnchor),
@@ -86,12 +129,25 @@ final class ActivityTableViewCell: UITableViewCell {
             avatarImageView.widthAnchor.constraint(equalToConstant: ActivityConstants.avatarSize),
             
             
-            nameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
-            nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            nameLabel.widthAnchor.constraint(equalToConstant: 100),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20)
+            nameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 4),
+            nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            lessWidthConstraintNameLabel,
+            nameLabel.heightAnchor.constraint(equalToConstant: nameLabel.font.lineHeight),
+            
+            
+            descriptionLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 4),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
+            descriptionLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -15),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: descriptionLabel.font.lineHeight),
+            
+            daysTitleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -15),
+            daysTitleLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            daysTitleLabel.heightAnchor.constraint(equalToConstant: daysTitleLabel.font.lineHeight),
+            
+            daysLeftNumberLabel.rightAnchor.constraint(equalTo: daysTitleLabel.leftAnchor, constant: -3),
+            daysLeftNumberLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            daysLeftNumberLabel.heightAnchor.constraint(equalToConstant: daysLeftNumberLabel.font.lineHeight),
         ])
-        
     }
     
 }

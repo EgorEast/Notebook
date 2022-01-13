@@ -24,7 +24,7 @@ final class ActivityViewController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .white
         navigationItem.title = "Birthday"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: nil, menu: nil)
         self.view.addSubview(self.tableView)
     }
     
@@ -69,6 +69,7 @@ extension ActivityViewController: UITableViewDataSource {
 }
 
 extension ActivityViewController: UITableViewDelegate {
+    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Yay!", message: "You selected row number \(indexPath.row)", preferredStyle: UIAlertController.Style.alert)
