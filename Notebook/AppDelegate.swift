@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainViewController = MainViewController()
         let eventsViewController = EventsViewController()
+        let addEventViewController = AddEventViewController()
         let navController = UINavigationController()
-        navController.setViewControllers([mainViewController, eventsViewController], animated: true)
+        navController.setViewControllers([mainViewController, eventsViewController, addEventViewController], animated: true)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController

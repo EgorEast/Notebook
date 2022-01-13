@@ -9,7 +9,7 @@ import UIKit
 
 final class EventsViewController: UIViewController {
     
-    private var eventsViewModel = ActivityViewModelImpl()
+    private var eventsViewModel = EventsViewModelImpl()
     
     let tableView = UITableView(frame: .zero, style: .plain)
 

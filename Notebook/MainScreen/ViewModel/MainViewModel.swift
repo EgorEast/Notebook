@@ -11,7 +11,7 @@ protocol MainViewModel {
     var data: [String] { get set }
 }
 
-class MainViewModelImpl {
+class MainViewModelImpl: MainViewModel {
     var data = ["Birthday", "Measure", "Anniversary", "Event"]
     
     init() {

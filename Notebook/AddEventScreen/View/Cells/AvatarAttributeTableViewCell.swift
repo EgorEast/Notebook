@@ -1,53 +1,15 @@
 //
-//  EventsTableViewCell.swift
+//  AvatarAttributeTableViewCell.swift
 //  Notebook
 //
-//  Created by Egor Slobodskoy on 12.01.2022.
+//  Created by Egor Slobodskoy on 13.01.2022.
 //
 
 import UIKit
 
-enum EventsConstants {
-    static let cellHeight = UIScreen.main.bounds.height * 0.1
-    static var avatarSize: Double = {
-        return EventsConstants.cellHeight * 0.7
-    }()
-}
+final class AvatarAttributeTableViewCell: UITableViewCell {
 
-final class EventsTableViewCell: UITableViewCell {
-    
     private let containerView = UIView()
-    
-    var nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Label"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        return label
-    }()
-    
-    var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Description text"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        return label
-    }()
-    
-    var daysLeftNumberLabel: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        return label
-    }()
-    
-    var daysTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "days"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        return label
-    }()
     
     var avatarImageView: UIImageView = {
         let imageView = UIImageView(
@@ -59,6 +21,12 @@ final class EventsTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Label"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -80,19 +48,9 @@ final class EventsTableViewCell: UITableViewCell {
         
         contentView.addSubview(containerView)
         
-        setupLabels()
-        setupAvatar()
-    }
-    
-    private func setupAvatar() {
         containerView.addSubview(avatarImageView)
-    }
-    
-    private func setupLabels() {
         containerView.addSubview(nameLabel)
-        containerView.addSubview(descriptionLabel)
-        containerView.addSubview(daysLeftNumberLabel)
-        containerView.addSubview(daysTitleLabel)
+
     }
     
     private func setupLayout() {
@@ -101,9 +59,7 @@ final class EventsTableViewCell: UITableViewCell {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        daysLeftNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        daysTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+
         
         let lessWidthConstraintNameLabel = NSLayoutConstraint(
             item: nameLabel,
@@ -132,22 +88,7 @@ final class EventsTableViewCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             lessWidthConstraintNameLabel,
             nameLabel.heightAnchor.constraint(equalToConstant: nameLabel.font.lineHeight),
-            
-            
-            descriptionLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 4),
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
-            descriptionLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -15),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: descriptionLabel.font.lineHeight),
-            
-            daysTitleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -15),
-            daysTitleLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
-            daysTitleLabel.heightAnchor.constraint(equalToConstant: daysTitleLabel.font.lineHeight),
-            
-            daysLeftNumberLabel.rightAnchor.constraint(equalTo: daysTitleLabel.leftAnchor, constant: -3),
-            daysLeftNumberLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
-            daysLeftNumberLabel.heightAnchor.constraint(equalToConstant: daysLeftNumberLabel.font.lineHeight),
         ])
     }
-    
-}
 
+}

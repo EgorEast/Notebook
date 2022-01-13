@@ -1,5 +1,5 @@
 //
-//  ActivityViewModel.swift
+//  EventsViewModel.swift
 //  Notebook
 //
 //  Created by Egor Slobodskoy on 12.01.2022.
@@ -11,7 +11,7 @@ protocol EventsViewModel {
     var data: [String] { get set }
 }
 
-class ActivityViewModelImpl {
+class EventsViewModelImpl: EventsViewModel {
     
     var data = ["Jeremy", "Maria Lul", "Jony Stark"]
     

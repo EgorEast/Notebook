@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050657E0279050C200D17169 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050657DF279050C200D17169 /* AddEventViewController.swift */; };
+		050657E22790515900D17169 /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050657E12790515900D17169 /* AddEventViewModel.swift */; };
+		050657E72790660800D17169 /* TextAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050657E62790660800D17169 /* TextAttributeTableViewCell.swift */; };
+		050657E9279066F900D17169 /* AvatarAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050657E8279066F900D17169 /* AvatarAttributeTableViewCell.swift */; };
+		050657EB2790721200D17169 /* AvatarAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050657EA2790721200D17169 /* AvatarAttributeView.swift */; };
 		05511FBF278ECB0F00BFCF1D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FBE278ECB0F00BFCF1D /* EventsViewController.swift */; };
 		05511FC1278ECF1700BFCF1D /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FC0278ECF1700BFCF1D /* EventsTableViewCell.swift */; };
 		05511FC3278EE98C00BFCF1D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FC2278EE98C00BFCF1D /* MainViewModel.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050657DF279050C200D17169 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		050657E12790515900D17169 /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
+		050657E62790660800D17169 /* TextAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		050657E8279066F900D17169 /* AvatarAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		050657EA2790721200D17169 /* AvatarAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAttributeView.swift; sourceTree = "<group>"; };
 		05511FBE278ECB0F00BFCF1D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		05511FC0278ECF1700BFCF1D /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		05511FC2278EE98C00BFCF1D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +53,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050657DB2790504B00D17169 /* AddEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+				050657DE2790507300D17169 /* Model */,
+				050657DD2790506A00D17169 /* ViewModel */,
+				050657DC2790506200D17169 /* View */,
+			);
+			path = AddEventScreen;
+			sourceTree = "<group>";
+		};
+		050657DC2790506200D17169 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				050657DF279050C200D17169 /* AddEventViewController.swift */,
+				050657E52790655E00D17169 /* Cells */,
+				050657EA2790721200D17169 /* AvatarAttributeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		050657DD2790506A00D17169 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				050657E12790515900D17169 /* AddEventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		050657DE2790507300D17169 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		050657E52790655E00D17169 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				050657E62790660800D17169 /* TextAttributeTableViewCell.swift */,
+				050657E8279066F900D17169 /* AvatarAttributeTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		05511FB6278EC7B900BFCF1D /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +189,7 @@
 				05B042ED278D9DA100BEE592 /* AppDelegate.swift */,
 				05511FB6278EC7B900BFCF1D /* MainScreen */,
 				05511FBA278ECAA400BFCF1D /* EventsScreen */,
+				050657DB2790504B00D17169 /* AddEventScreen */,
 				05B042FB278D9DA200BEE592 /* Info.plist */,
 			);
 			path = Notebook;
@@ -211,12 +266,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				05511FC3278EE98C00BFCF1D /* MainViewModel.swift in Sources */,
+				050657E0279050C200D17169 /* AddEventViewController.swift in Sources */,
 				05B042F2278D9DA100BEE592 /* MainViewController.swift in Sources */,
 				05511FC5278EEB5200BFCF1D /* EventsViewModel.swift in Sources */,
 				05B04302278DA37600BEE592 /* MainTableViewCell.swift in Sources */,
 				05511FC1278ECF1700BFCF1D /* EventsTableViewCell.swift in Sources */,
 				05B042EE278D9DA100BEE592 /* AppDelegate.swift in Sources */,
 				05511FBF278ECB0F00BFCF1D /* EventsViewController.swift in Sources */,
+				050657E72790660800D17169 /* TextAttributeTableViewCell.swift in Sources */,
+				050657E9279066F900D17169 /* AvatarAttributeTableViewCell.swift in Sources */,
+				050657EB2790721200D17169 /* AvatarAttributeView.swift in Sources */,
+				050657E22790515900D17169 /* AddEventViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
