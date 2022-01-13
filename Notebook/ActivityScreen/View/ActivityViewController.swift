@@ -34,6 +34,7 @@ final class ActivityViewController: UIViewController {
         tableView.clipsToBounds = false
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = ActivityConstants.cellHeight
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -47,7 +48,7 @@ final class ActivityViewController: UIViewController {
     private func updateLayout(with size: CGSize) {
         self.tableView.frame = CGRect(origin: .zero, size: size)
     }
-
+    
 }
 
 extension ActivityViewController: UITableViewDataSource {
@@ -68,14 +69,7 @@ extension ActivityViewController: UITableViewDataSource {
 }
 
 extension ActivityViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.1
-    }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Yay!", message: "You selected row number \(indexPath.row)", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
