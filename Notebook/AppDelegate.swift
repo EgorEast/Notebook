@@ -15,14 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let mainViewController = MainViewController()
-        let eventsViewController = EventsViewController()
-        let addEventViewController = AddEventViewController()
-        let navController = UINavigationController()
-        navController.setViewControllers([mainViewController, eventsViewController, addEventViewController], animated: true)
+        let navController = UINavigationController(rootViewController: mainViewController)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
+        self.window?.backgroundColor = .white
         return true
     }
 }

@@ -29,8 +29,17 @@ final class AddEventViewController: UIViewController, UIGestureRecognizerDelegat
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .done, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Добавить",
+            image: .none,
+            primaryAction: .init(
+                handler: { _ in self.addButtonClick()}
+            ),
+            menu: nil
+        )
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .done, target: nil, action: #selector(addButtonClick))
+
+
         let backBTN = UIBarButtonItem(
             image: nil,
             style: .done,
@@ -44,6 +53,10 @@ final class AddEventViewController: UIViewController, UIGestureRecognizerDelegat
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         self.view.addSubview(self.tableView)
+    }
+    
+    private func addButtonClick() {
+        print("Add Event")
     }
     
     

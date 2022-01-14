@@ -22,7 +22,6 @@ final class MainViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
         navigationItem.title = "Notebook"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.addSubview(self.tableView)
@@ -30,7 +29,7 @@ final class MainViewController: UIViewController {
     
     private func setupTableView() {
         self.tableView.register(MainTableViewCell.self, forCellReuseIdentifier: "MainTableViewCell")
-//        tableView.separatorStyle = .none
+        tableView.separatorStyle = .none
         tableView.clipsToBounds = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -78,8 +77,8 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Yay!", message: "You selected row number \(indexPath.row)", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let eventsViewController = EventsViewController()
+        eventsViewController.navigationItem.title = mainViewModel.data[indexPath.row]
+        navigationController?.pushViewController(eventsViewController, animated: true)
     }
 }

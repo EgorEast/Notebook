@@ -22,15 +22,19 @@ final class EventsViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
-        navigationItem.title = "Birthday"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: nil, menu: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: .init(handler: { [weak self] _ in
+            self?.navigationController?.pushViewController(AddEventViewController(), animated: true)
+        }), menu: nil)
+                
         self.view.addSubview(self.tableView)
     }
     
+//    @objc func clickAddButton() {
+//
+//    }
+    
     private func setupTableView() {
         self.tableView.register(EventsTableViewCell.self, forCellReuseIdentifier: "EventsTableViewCell")
-//        tableView.separatorStyle = .none
         tableView.clipsToBounds = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -72,9 +76,7 @@ extension EventsViewController: UITableViewDelegate {
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Yay!", message: "You selected row number \(indexPath.row)", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        navigationController?.pushViewController(AddEventViewController(), animated: true)
     }
 }
 
