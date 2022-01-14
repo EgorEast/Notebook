@@ -8,29 +8,44 @@
 import UIKit
 
 enum AvatarAttributeConstantss {
-    static let height = 200.0
+    static let height = (170.0 / UIScreen.main.bounds.height) * UIScreen.main.bounds.height
+    static var avatarSize: Double = {
+        return AvatarAttributeConstantss.height * 0.77
+    }()
 }
 
 class AvatarAttributeView: UIView {
-
+    
     private let containerView = UIView()
     
     var avatarImageView: UIImageView = {
         let imageView = UIImageView(
             image: UIImage(named: "EmptyAvatar")
         )
-        imageView.frame.size = CGSize(width: EventsConstants.avatarSize, height: EventsConstants.avatarSize)
+        imageView.frame.size = CGSize(
+            width: AvatarAttributeConstantss.avatarSize,
+            height: AvatarAttributeConstantss.avatarSize
+        )
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    var nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Label"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        return label
+    var changePhotoButton: UIButton = {
+        let button = UIButton()
+        button.frame.size.width = 150
+        button.frame.size.height = 20
+        button.setTitle("Изменить фото", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.layer.borderColor = .none
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        return button
     }()
+    
+    @objc func buttonClicked() {
+        print("Button Clicked")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,40 +57,26 @@ class AvatarAttributeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //    func configure(data: ) {
-    //
-    //    }
+//    func configure(data: ) {
+//
+//    }
     
     private func setupUI() {
-
+        
         backgroundColor = .clear
         
         self.addSubview(containerView)
         
         containerView.addSubview(avatarImageView)
-        containerView.addSubview(nameLabel)
-
+        containerView.addSubview(changePhotoButton)
+        
     }
     
     private func setupLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.backgroundColor = .yellow
-
-        
-        let lessWidthConstraintNameLabel = NSLayoutConstraint(
-            item: nameLabel,
-            attribute: .width,
-            relatedBy: .lessThanOrEqual,
-            toItem: containerView,
-            attribute: .width,
-            multiplier: 0.65,
-            constant: 0
-        );
+        changePhotoButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             containerView.leftAnchor.constraint(equalTo: containerView.superview?.leftAnchor ?? self.leftAnchor),
@@ -84,17 +85,16 @@ class AvatarAttributeView: UIView {
             containerView.bottomAnchor.constraint(equalTo: containerView.superview?.bottomAnchor ?? self.bottomAnchor),
             
             
-            avatarImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            avatarImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3),
-            avatarImageView.heightAnchor.constraint(equalToConstant: EventsConstants.avatarSize),
-            avatarImageView.widthAnchor.constraint(equalToConstant: EventsConstants.avatarSize),
+            avatarImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            avatarImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            avatarImageView.heightAnchor.constraint(equalToConstant: AvatarAttributeConstantss.avatarSize),
+            avatarImageView.widthAnchor.constraint(equalToConstant: AvatarAttributeConstantss.avatarSize),
             
             
-            nameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 4),
-            nameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
-            lessWidthConstraintNameLabel,
-            nameLabel.heightAnchor.constraint(equalToConstant: nameLabel.font.lineHeight),
+            changePhotoButton.centerXAnchor.constraint(equalTo: avatarImageView.centerXAnchor),
+            changePhotoButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10),
+            changePhotoButton.heightAnchor.constraint(equalToConstant: changePhotoButton.titleLabel?.font.lineHeight ?? 20),
         ])
     }
-
+    
 }

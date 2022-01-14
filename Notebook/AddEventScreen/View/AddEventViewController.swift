@@ -30,10 +30,10 @@ final class AddEventViewController: UIViewController, UIGestureRecognizerDelegat
     
     private func setupUI() {
         self.view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .done, target: nil, action: nil)
         let backBTN = UIBarButtonItem(
             image: nil,
-            style: .plain,
+            style: .done,
             target: navigationController,
             action: #selector(UINavigationController.popViewController(animated:))
         )
@@ -48,12 +48,12 @@ final class AddEventViewController: UIViewController, UIGestureRecognizerDelegat
     
     
     private func setupTableView() {
-        self.tableView.register(AvatarAttributeTableViewCell.self, forCellReuseIdentifier: "AvatarAttributeTableViewCell")
-//        tableView.separatorStyle = .none
+        self.tableView.register(TextAttributeTableViewCell.self, forCellReuseIdentifier: "TextAttributeTableViewCell")
+        tableView.separatorStyle = .none
         tableView.clipsToBounds = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = EventsConstants.cellHeight
+        tableView.rowHeight = TextAttributeConstants.cellHeight
         tableView.isScrollEnabled = false
     }
     
@@ -75,25 +75,48 @@ extension AddEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
             case self.tableView:
-                return 1
+                return 5
             default:
                 return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "AvatarAttributeTableViewCell", for: indexPath) as! AvatarAttributeTableViewCell
+        
+        let texts: [(title: String, placeholder: String)] = [
+            (title: "Имя", placeholder: "Введите имя"),
+            (title: "Дата", placeholder: "Введите дату"),
+            (title: "Возраст", placeholder: "Добавить"),
+            (title: "Пол", placeholder: "Добавить"),
+            (title: "Instagram", placeholder: "Добавить")
+        ]
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "TextAttributeTableViewCell", for: indexPath) as! TextAttributeTableViewCell
+
+        cell.setTitleLabel(string: texts[indexPath.row].title)
+        cell.setPlaceholder(string: texts[indexPath.row].placeholder)
+        if indexPath.row == 0 {
+            cell.setDisablingTextField(bool: false)
+        } else {
+            cell.setDisablingTextField(bool: true)
+        }
+
         return cell
+        
     }
     
 }
 
 extension AddEventViewController: UITableViewDelegate {
-    
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            return
+        }
+
         let alert = UIAlertController(title: "Yay!", message: "You selected row number \(indexPath.row)", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
     }
 }
