@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
     
     private func setupUI() {
         navigationItem.title = "Notebook"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.addSubview(self.tableView)
     }
     

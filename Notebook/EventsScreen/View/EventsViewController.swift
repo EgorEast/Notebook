@@ -25,7 +25,6 @@ final class EventsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: .init(handler: { [weak self] _ in
             self?.navigationController?.pushViewController(AddEventViewController(), animated: true)
         }), menu: nil)
-                
         self.view.addSubview(self.tableView)
     }
     

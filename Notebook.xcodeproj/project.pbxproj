@@ -14,6 +14,7 @@
 		05511FC1278ECF1700BFCF1D /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FC0278ECF1700BFCF1D /* EventsTableViewCell.swift */; };
 		05511FC3278EE98C00BFCF1D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FC2278EE98C00BFCF1D /* MainViewModel.swift */; };
 		05511FC5278EEB5200BFCF1D /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05511FC4278EEB5200BFCF1D /* EventsViewModel.swift */; };
+		0594521E27955EF20072DB2A /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0594521D27955EF20072DB2A /* MainModel.swift */; };
 		05AE7A6227916E9300DA4454 /* TextAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AE7A6127916E9300DA4454 /* TextAttributeTableViewCell.swift */; };
 		05B042EE278D9DA100BEE592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B042ED278D9DA100BEE592 /* AppDelegate.swift */; };
 		05B042F2278D9DA100BEE592 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B042F1278D9DA100BEE592 /* MainViewController.swift */; };
@@ -30,6 +31,7 @@
 		05511FC0278ECF1700BFCF1D /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		05511FC2278EE98C00BFCF1D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		05511FC4278EEB5200BFCF1D /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		0594521D27955EF20072DB2A /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		05AE7A6127916E9300DA4454 /* TextAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributeTableViewCell.swift; sourceTree = "<group>"; };
 		05B042EA278D9DA100BEE592 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B042ED278D9DA100BEE592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		05511FB8278EC7DC00BFCF1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0594521D27955EF20072DB2A /* MainModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				05511FC1278ECF1700BFCF1D /* EventsTableViewCell.swift in Sources */,
 				05B042EE278D9DA100BEE592 /* AppDelegate.swift in Sources */,
 				05511FBF278ECB0F00BFCF1D /* EventsViewController.swift in Sources */,
+				0594521E27955EF20072DB2A /* MainModel.swift in Sources */,
 				050657EB2790721200D17169 /* AvatarAttributeView.swift in Sources */,
 				050657E22790515900D17169 /* AddEventViewModel.swift in Sources */,
 				05AE7A6227916E9300DA4454 /* TextAttributeTableViewCell.swift in Sources */,
